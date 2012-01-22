@@ -1,0 +1,60 @@
+= AWS-TOOLS
+
+
+== DESCRIPTION
+AWS-TOOLS is simple, but convenient tools to use AWS.
+These scripts run on Ruby and aws-sdk.
+
+
+== Getting started
+1. Install gem package "aws-sdk".
+
+    $ gem install aws-sdk --no-ri --no-rdoc
+
+2. Update ./config.yml for your environmet.
+
+    access_key_id:     <YOUR_ACCESS_KEY_ID>
+    secret_access_key: <YOUR_SECRET_ACCESS_KEY>
+    s3_endpoint:       <YOUR_S3_ENDPOINT>
+
+For information about AWS regions and endpoints,
+go to Regions and Endpoints in the Amazon Web Services General Reference.
+
+http://docs.amazonwebservices.com/general/latest/gr/rande.html
+
+
+== USAGE
+
+=== upload_to_s3.rb
+upload_to_s3.rb is a file upload program to Amazon S3.
+  upload_to_s3.rb -b <bucket name> -f <file name> [-p <directory prefix>] [-n]
+
+e.g.
+  upload_to_s3.rb -b data -f /tmp/mysql_20120120.dump -p mysql
+  upload_to_s3.rb -b logs -f "/var/log/nginx/access.log-20120120.*.gz" -p nginx -n
+
+==== options
+[-b, --bucket-name=BUCKET_NAME]   All files will be saved to this bucket.
+[-f, --file-name=FILE_NAME]       This local file will be uploaded to Amazon S3.
+[-p, --directory-prefix=DIRECTORY_PREFIX]
+                                  All files will be saved to this directory.
+[-n, --dry-run]                   Perform a trial run with no changes made.
+
+
+== AUTHOR
+Tetsuya Imamura
+
+
+== COPYRIGHT
+Copyright (c) 2012 Tetsuya Imamura
+
+
+== CONTACT
+If you find a bug, please report it at my e-mail.
+  mail@tetsuyai.com
+
+
+== LICENSE
+AWS-TOOLS is available under an MIT-style license.
+
+:include: MIT-LICENSE
